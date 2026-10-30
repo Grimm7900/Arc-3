@@ -1,3 +1,4 @@
+
 public class Necromancer extends Combatant {
     private int mana;
     private int minions;
