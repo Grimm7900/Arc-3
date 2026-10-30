@@ -1,4 +1,5 @@
-public class Healer extends Combatant {
+
+public class Healer extends Combatant implements Special {
     private int mana;
 
     public Healer(String name, int health, int level, int mana) {
@@ -9,6 +10,11 @@ public class Healer extends Combatant {
     @Override
     public String attack() {
         return getName() + " strikes the enemy with holy light!";
+    }
+
+    @Override
+    public String useSpecialMove() {
+        return getName() + " casts a powerful healing spell!";
     }
 
     public void useMana(int amount) {
