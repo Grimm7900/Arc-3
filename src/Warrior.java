@@ -12,4 +12,9 @@ public class Warrior extends Combatant {
     public String attack() {
         return getName() + " slams down their sword!";
     }
+
+    @Override
+    public String toCsv() {
+        return "Warrior," + getName() + "," + getHealth() + "," + getLevel() + "," + defense;
+    }
 }
