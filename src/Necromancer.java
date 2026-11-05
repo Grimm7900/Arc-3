@@ -34,4 +34,9 @@ public class Necromancer extends Combatant {
     public int getMinions() {
         return minions;
     }
+
+    @Override
+    public String toCsv() {
+        return "Necromancer," + getName() + "," + getHealth() + "," + getLevel() + "," + minions;
+    }
 }
