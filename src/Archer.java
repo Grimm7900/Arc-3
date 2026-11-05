@@ -20,4 +20,9 @@ public class Archer extends Combatant {
     public int getArrows() {
         return arrows;
     }
+
+    @Override
+    public String toCsv() {
+        return "Archer," + getName() + "," + getHealth() + "," + getLevel() + "," + arrows;
+    }
 }
