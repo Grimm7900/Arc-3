@@ -54,3 +54,82 @@ public class Main {
 
     }
 }
+
+// Reads the save file and rebuilds the party
+public static void ReadFile() {
+
+    // Creates a new party to hold the loaded characters
+    ArrayList<Combatant> party = new ArrayList<>();
+
+    try {
+        // Opens the save file
+        Scanner fileScanner = new Scanner(new File("save.txt"));
+
+        // Reads the file one line at a time
+        while (fileScanner.hasNextLine()) {
+
+            String line = fileScanner.nextLine();
+
+            // Splits the line into individual pieces
+            String[] split = line.split(",");
+
+            // Gets the character type and shared information
+            String type = split[0];
+            String name = split[1];
+            int health = Integer.parseInt(split[2]);
+            int level = Integer.parseInt(split[3]);
+
+            // Rebuilds the correct character based on its type
+            if (type.equals("Warrior")) {
+
+                int defense = Integer.parseInt(split[4]);
+
+                party.add(new Warrior(name, health, level, defense));
+
+            } else if (type.equals("Mage")) {
+
+                int mana = Integer.parseInt(split[4]);
+
+                party.add(new Mage(name, health, level, mana));
+
+            } else if (type.equals("Archer")) {
+
+                int arrows = Integer.parseInt(split[4]);
+
+                party.add(new Archer(name, health, level, arrows));
+
+            } else if (type.equals("Healer")) {
+
+                int mana = Integer.parseInt(split[4]);
+
+                party.add(new Healer(name, health, level, mana));
+
+            } else if (type.equals("Necromancer")) {
+
+                int mana = Integer.parseInt(split[4]);
+                int minions = Integer.parseInt(split[5]);
+
+                party.add(new Necromancer(name, health, level, mana, minions));
+
+            } else if (type.equals("Rogue")) {
+
+                int energy = Integer.parseInt(split[4]);
+
+                party.add(new Rogue(name, health, level, energy));
+            }
+        }
+
+        // Closes the scanner after reading the file
+        fileScanner.close();
+
+        // Displays all characters that were loaded
+        for (Combatant c : party) {
+            System.out.println(c.attack());
+        }
+
+        System.out.println("Party successfully loaded!");
+
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+}
