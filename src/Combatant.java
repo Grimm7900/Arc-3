@@ -12,6 +12,9 @@ public abstract class Combatant {
 
     public abstract String attack();
 
+    public abstract String toCsv();
+
+
     public String getName() {
         return name;
     }
