@@ -38,5 +38,19 @@ public class Main {
         for (Special s : specialists) {
             System.out.println(s.useSpecialMove());
         }
+
+
+        System.out.println(System.getProperty("user.dir"));
+
+        try {
+            FileWriter writer = new FileWriter("save.txt");
+            for (Combatant c : party) {
+                writer.write(c.toCsv() + "\n"); // one object per line
+            }
+            writer.close(); // CRITICAL — flushes and releases the file
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
