@@ -26,4 +26,9 @@ public class Healer extends Combatant implements Special {
     public int getMana() {
         return mana;
     }
+
+    @Override
+    public String toCsv() {
+        return "Healer," + getName() + "," + getHealth() + "," + getLevel() + "," + mana;
+    }
 }
