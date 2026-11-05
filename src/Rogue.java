@@ -20,4 +20,9 @@ public class Rogue extends Combatant {
     public int getEnergy() {
         return energy;
     }
+
+    @Override
+    public String toCsv() {
+        return "Rogue," + getName() + "," + getHealth() + "," + getLevel() + "," + energy;
+    }
 }
