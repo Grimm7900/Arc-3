@@ -26,4 +26,9 @@ public class Mage extends Combatant implements Special {
     public int getMana() {
         return mana;
     }
+
+    @Override
+    public String toCsv() {
+        return "Mage," + getName() + "," + getHealth() + "," + getLevel() + "," + mana;
+    }
 }
